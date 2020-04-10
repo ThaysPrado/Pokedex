@@ -8,5 +8,8 @@ target 'Pokedex' do
   # Pods for Pokedex
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'Kingfisher'
 
 end
