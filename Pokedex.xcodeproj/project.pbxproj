@@ -14,6 +14,7 @@
 		4046B7EF2440DEB8007E64D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4046B7ED2440DEB8007E64D7 /* Main.storyboard */; };
 		4046B7F12440DEB9007E64D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4046B7F02440DEB9007E64D7 /* Assets.xcassets */; };
 		4046B7F42440DEB9007E64D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4046B7F22440DEB9007E64D7 /* LaunchScreen.storyboard */; };
+		4046B7FC2440EC86007E64D7 /* ItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046B7FB2440EC86007E64D7 /* ItemCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4046B7F02440DEB9007E64D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4046B7F32440DEB9007E64D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4046B7F52440DEB9007E64D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4046B7FB2440EC86007E64D7 /* ItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemCollectionCell.swift; path = ../ItemCollectionCell.swift; sourceTree = "<group>"; };
 		5EF420BCB91DFB99B8A74075 /* Pods_Pokedex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		874D45FE07BCE27FF8806130 /* Pods-Pokedex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex.debug.xcconfig"; path = "Target Support Files/Pods-Pokedex/Pods-Pokedex.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,15 +65,64 @@
 		4046B7E62440DEB8007E64D7 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				4046B8022440F00F007E64D7 /* API */,
+				4046B8012440F005007E64D7 /* Models */,
+				4046B8002440EFE4007E64D7 /* Protocols */,
+				4046B7FF2440EFDE007E64D7 /* ViewModel */,
+				4046B7FD2440EFC4007E64D7 /* View */,
 				4046B7E72440DEB8007E64D7 /* AppDelegate.swift */,
 				4046B7E92440DEB8007E64D7 /* SceneDelegate.swift */,
-				4046B7EB2440DEB8007E64D7 /* ViewController.swift */,
 				4046B7ED2440DEB8007E64D7 /* Main.storyboard */,
 				4046B7F02440DEB9007E64D7 /* Assets.xcassets */,
 				4046B7F22440DEB9007E64D7 /* LaunchScreen.storyboard */,
 				4046B7F52440DEB9007E64D7 /* Info.plist */,
 			);
 			path = Pokedex;
+			sourceTree = "<group>";
+		};
+		4046B7FD2440EFC4007E64D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4046B7FE2440EFD1007E64D7 /* Cells */,
+				4046B7EB2440DEB8007E64D7 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4046B7FE2440EFD1007E64D7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4046B7FB2440EC86007E64D7 /* ItemCollectionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4046B7FF2440EFDE007E64D7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4046B8002440EFE4007E64D7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4046B8012440F005007E64D7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4046B8022440F00F007E64D7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		9E995AE103F4BC6E412E38F9 /* Frameworks */ = {
@@ -208,6 +259,7 @@
 			files = (
 				4046B7EC2440DEB8007E64D7 /* ViewController.swift in Sources */,
 				4046B7E82440DEB8007E64D7 /* AppDelegate.swift in Sources */,
+				4046B7FC2440EC86007E64D7 /* ItemCollectionCell.swift in Sources */,
 				4046B7EA2440DEB8007E64D7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
