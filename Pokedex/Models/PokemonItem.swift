@@ -12,12 +12,14 @@ class PokemonItem {
     
     var name: String?
     var index: String?
+    var urlImg = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
     
-    init (json: [String: Any]) {
+    init(json: [String: Any]) {
         if let name = json["name"] as? String { self.name = "\(name)" }
         if let url = json["url"] as? String {
             let arr = url.components(separatedBy: "pokemon/")
             self.index = arr[1].components(separatedBy: "/")[0]
+            self.urlImg += "\(self.index!).png"
         }
     }
     

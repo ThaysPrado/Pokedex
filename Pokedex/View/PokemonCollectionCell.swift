@@ -8,15 +8,16 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
-class ItemCollectionCell: UICollectionViewCell, UIScrollViewDelegate {
+class PokemonCollectionCell: UICollectionViewCell, UIScrollViewDelegate {
     
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var name: UILabel!
-    
-    func setup() {
-        self.name.text = "Pikachu"
-        self.img.image = #imageLiteral(resourceName: "25.png")
+
+    func setup(withViewModel viewModel: PokemonItem) -> (Void) {
+        self.name.text = viewModel.name!
+        self.img.kf.setImage(with: URL(string: viewModel.urlImg))
     }
     
 }

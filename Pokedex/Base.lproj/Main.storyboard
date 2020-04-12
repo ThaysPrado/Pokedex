@@ -58,7 +58,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Item" id="pOP-zb-aPw" customClass="ItemCollectionCell" customModule="Pokedex" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pokemonCell" id="pOP-zb-aPw" customClass="PokemonCollectionCell" customModule="Pokedex" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="116" height="146"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e3b-lU-bZu">
@@ -88,15 +88,11 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="116" height="146"/>
                                         <connections>
-                                            <outlet property="img" destination="cAg-ZU-gyj" id="qE0-Ql-S9l"/>
-                                            <outlet property="name" destination="vzj-za-VYV" id="CoI-JU-Pza"/>
+                                            <outlet property="img" destination="cAg-ZU-gyj" id="gOE-9a-HdR"/>
+                                            <outlet property="name" destination="vzj-za-VYV" id="DIr-Zb-sAy"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="EtO-ga-0aZ"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="jkc-Xi-Vx1"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
