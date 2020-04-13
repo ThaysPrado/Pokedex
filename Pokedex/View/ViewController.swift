@@ -33,7 +33,19 @@ class ViewController: UIViewController {
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
     }
-
+    
+    @IBAction func searchPokemon(_ sender: UIButton) {
+        guard let searchName = inputSearch.text else {
+            return
+        }
+        
+        viewModel?.searchName = searchName
+        
+        DispatchQueue.global(qos: .background).async {
+            self.viewModel?.searchPokemonByName()
+        }
+    }
+    
 }
 
 extension ViewController: UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {

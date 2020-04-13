@@ -13,6 +13,7 @@ class ViewModel {
     
     var api: PokemonService
     var offset = 0
+    var searchName = ""
     
     var items: Variable< [PokemonItem]> = Variable([])
     
@@ -32,6 +33,18 @@ class ViewModel {
                 print(result)
              })
         self.offset += 20
+    }
+    
+    func searchPokemonByName() {
+        self.api.searchPokemon(parameters: ["name": searchName],
+            onSuccess: { (result) in
+                print("Result: \(result)")
+                self.items.value.removeAll()
+                self.items.value.append(result)
+            },
+            onFailure: { (result) in
+               print("404")
+            })
     }
     
 }

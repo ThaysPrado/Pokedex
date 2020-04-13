@@ -16,9 +16,13 @@ class PokemonItem {
     
     init(json: [String: Any]) {
         if let name = json["name"] as? String { self.name = "\(name)" }
+        
         if let url = json["url"] as? String {
             let arr = url.components(separatedBy: "pokemon/")
             self.index = arr[1].components(separatedBy: "/")[0]
+            self.urlImg += "\(self.index!).png"
+        } else {
+            self.index = String(describing: json["id"]!)
             self.urlImg += "\(self.index!).png"
         }
     }
@@ -27,6 +31,5 @@ class PokemonItem {
         return json.map { PokemonItem(json: $0) }
     }
 
-    
 }
 

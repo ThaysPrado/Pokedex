@@ -30,4 +30,24 @@ class PokemonService {
             })
     }
     
+    public func searchPokemon(parameters: [String: String],
+                              onSuccess successCallback: ((_ response: PokemonItem) -> Void)?,
+                              onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+        
+        let url = apiBaseUrl + "/\(parameters["name"]!)"
+        
+        APICallManager.shared.createRequest(
+            url, method: .get, headers: nil, parameters: nil,
+            onSuccess: {(responseObject: JSON) -> Void in
+                var data = [PokemonItem]()
+                if let pokemonList = responseObject.dictionaryObject as? [String: Any] {
+                    data = PokemonItem.getModels([pokemonList])
+                }
+                successCallback?(data[0])
+            }, onFailure: {(errorMessage: String) -> Void in
+               failureCallback?(errorMessage)
+            })
+        
+    }
+    
 }

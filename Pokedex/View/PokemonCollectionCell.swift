@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class PokemonCollectionCell: UICollectionViewCell, UIScrollViewDelegate {
+class PokemonCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var name: UILabel!
