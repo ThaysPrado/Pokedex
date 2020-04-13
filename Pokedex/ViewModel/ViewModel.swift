@@ -38,12 +38,12 @@ class ViewModel {
     func searchPokemonByName() {
         self.api.searchPokemon(parameters: ["name": searchName],
             onSuccess: { (result) in
-                print("Result: \(result)")
                 self.items.value.removeAll()
                 self.items.value.append(result)
             },
             onFailure: { (result) in
-               print("404")
+                print("404")
+                self.items.value.removeAll()
             })
     }
     

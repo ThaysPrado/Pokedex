@@ -21,8 +21,8 @@ class PokemonItem {
             let arr = url.components(separatedBy: "pokemon/")
             self.index = arr[1].components(separatedBy: "/")[0]
             self.urlImg += "\(self.index!).png"
-        } else {
-            self.index = String(describing: json["id"]!)
+        } else if let id = json["id"] {
+            self.index = String(describing: id)
             self.urlImg += "\(self.index!).png"
         }
     }

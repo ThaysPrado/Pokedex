@@ -35,7 +35,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func searchPokemon(_ sender: UIButton) {
-        guard let searchName = inputSearch.text else {
+        defer { self.inputSearch.text = "" }
+        
+        guard let searchName = inputSearch.text, inputSearch.text != "" else {
             return
         }
         
