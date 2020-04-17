@@ -11,5 +11,7 @@ target 'Pokedex' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
+  pod 'Swinject' , '~> 2.6.0'
+  pod 'SwinjectStoryboard', '~> 2.2.0'
 
 end

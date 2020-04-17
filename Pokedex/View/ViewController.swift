@@ -10,12 +10,14 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, Storyboarded {
+    
     @IBOutlet weak var inputSearch: UITextField!
     @IBOutlet weak var btnSearch: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    weak var coordinator: MainCoordinator?
     
     var heightCell = CGFloat(110)
     
@@ -32,6 +34,21 @@ class ViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        
+//        collectionView.rx.modelSelected(PokemonItem.self)
+//            .subscribe({ [weak self] pokemon in
+//                print(pokemon)
+//                self?.coordinator?.toPokeInfo(name: "aron")
+//            }).disposed(by: disposeBag)
+        
+        collectionView.rx.modelSelected(PokemonItem.self)
+           .map{ $0.name }
+           .subscribe(onNext: { [weak self] name in
+              guard let name = name else {
+                return
+              }
+              self?.coordinator?.toPokeInfo(name: name)
+        }).disposed(by: disposeBag)
     }
     
     @IBAction func searchPokemon(_ sender: UIButton) {
@@ -65,17 +82,17 @@ extension ViewController: UIScrollViewDelegate, UICollectionViewDelegateFlowLayo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.bounds.width - CGFloat(5)) / CGFloat(3)
+        let width = collectionView.bounds.width / CGFloat(3)
         self.heightCell = width
-        return CGSize(width: width, height: width)
+        return CGSize(width: (width - 15), height: width)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 6
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

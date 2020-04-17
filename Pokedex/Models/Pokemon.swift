@@ -22,12 +22,14 @@ class Pokemon {
         if let weight = json["weight"] as? Int { self.weight = "\(weight)" }
         if let height = json["height"] as? Int { self.height = "\(height)" }
         
-        if let sprites = json["sprites"] as? [String: String] {
+        if let sprites = json["sprites"] as? [String: Any] {
             let frontDefault = sprites["front_default"] ?? ""
             let frontShiny = sprites["front_shiny"] ?? ""
             
-            self.sprites?.append(frontDefault)
-            if frontShiny != "" { self.sprites?.append(frontShiny) }
+            var arrUrl = [String]()
+            arrUrl.append(frontDefault as! String)
+            arrUrl.append(frontShiny as! String)
+            self.sprites = arrUrl
         }
     }
     

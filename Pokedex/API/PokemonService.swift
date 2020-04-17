@@ -40,7 +40,7 @@ class PokemonService {
             url, method: .get, headers: nil, parameters: nil,
             onSuccess: {(responseObject: JSON) -> Void in
                 var data = [PokemonItem]()
-                if let pokemonList = responseObject.dictionaryObject as? [String: Any] {
+                if let pokemonList = responseObject.dictionaryObject {
                     data = PokemonItem.getModels([pokemonList])
                 }
                 successCallback?(data[0])
@@ -48,6 +48,28 @@ class PokemonService {
                failureCallback?(errorMessage)
             })
         
+    }
+    
+    public func fetchPokemon(parameters: [String: String],
+                             onSuccess successCallback: ((_ response: Pokemon) -> Void)?,
+                             onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+        
+        let name = parameters["name"] ?? ""
+        let url = apiBaseUrl + "/\(name)/"
+        
+        APICallManager.shared.createRequest(
+            url, method: .get, headers: nil, parameters: nil,
+            onSuccess: {(responseObject: JSON) -> Void in
+                var data = [Pokemon]()
+                if let pokemon = responseObject.dictionaryObject {
+                    data = Pokemon.getModels([pokemon])
+                }
+                print(data[0].name)
+                successCallback?(data[0])
+            },
+            onFailure: {(errorMessage: String) -> Void in
+                failureCallback?(errorMessage)
+            })
     }
     
 }
