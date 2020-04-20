@@ -157,64 +157,35 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="vFl-ji-FRv" userLabel="Container Type">
-                                                <rect key="frame" x="8" y="181" width="398" height="55"/>
-                                                <subviews>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZE-ZG-pSI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="27.5"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Button">
-                                                                    <attributes>
-                                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <font key="NSFont" metaFont="system"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                    </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EaW-v0-QSC">
-                                                        <rect key="frame" x="0.0" y="27.5" width="398" height="27.5"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="B">
-                                                                    <attributes>
-                                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <font key="NSFont" metaFont="system"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMx-qS-Qwj">
-                                                <rect key="frame" x="20" y="252" width="374" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMx-qS-Qwj">
+                                                <rect key="frame" x="20" y="181" width="374" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3W3-le-NF1" userLabel="Container Abilities">
-                                                <rect key="frame" x="8" y="288.5" width="398" height="529.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="vFl-ji-FRv" userLabel="Container Type">
+                                                <rect key="frame" x="8" y="197" width="398" height="90"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="0MH-B1-6ML"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3W3-le-NF1" userLabel="Container Abilities">
+                                                <rect key="frame" x="8" y="303" width="398" height="515"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="3W3-le-NF1" firstAttribute="top" secondItem="PMx-qS-Qwj" secondAttribute="bottom" constant="16" id="0ib-Ah-Wni"/>
                                             <constraint firstItem="4So-DQ-1fU" firstAttribute="top" secondItem="P1r-8W-jwZ" secondAttribute="bottom" id="3v5-iv-zYw"/>
-                                            <constraint firstItem="PMx-qS-Qwj" firstAttribute="top" secondItem="vFl-ji-FRv" secondAttribute="bottom" constant="16" id="Cbt-Fh-zMZ"/>
+                                            <constraint firstItem="vFl-ji-FRv" firstAttribute="top" secondItem="PMx-qS-Qwj" secondAttribute="bottom" constant="16" id="5N7-Jr-UCF"/>
                                             <constraint firstAttribute="trailing" secondItem="3W3-le-NF1" secondAttribute="trailing" constant="8" id="F9C-JF-ube"/>
-                                            <constraint firstItem="vFl-ji-FRv" firstAttribute="top" secondItem="4So-DQ-1fU" secondAttribute="bottom" constant="16" id="JD1-Xn-QfJ"/>
                                             <constraint firstAttribute="bottom" secondItem="3W3-le-NF1" secondAttribute="bottom" id="Jrh-sh-YeS"/>
                                             <constraint firstItem="3W3-le-NF1" firstAttribute="leading" secondItem="MPZ-rK-aHC" secondAttribute="leading" constant="8" id="NDt-LG-E0W"/>
                                             <constraint firstItem="4So-DQ-1fU" firstAttribute="centerX" secondItem="MPZ-rK-aHC" secondAttribute="centerX" id="P1d-Zc-6by"/>
                                             <constraint firstItem="P1r-8W-jwZ" firstAttribute="top" secondItem="MPZ-rK-aHC" secondAttribute="top" constant="25" id="SKX-1G-jkQ"/>
+                                            <constraint firstItem="PMx-qS-Qwj" firstAttribute="top" secondItem="4So-DQ-1fU" secondAttribute="bottom" constant="16" id="WT9-Ep-uZ7"/>
                                             <constraint firstAttribute="trailing" secondItem="PMx-qS-Qwj" secondAttribute="trailing" constant="20" id="Y46-xB-YYv"/>
                                             <constraint firstAttribute="height" constant="818" id="Ysm-eJ-OnP"/>
+                                            <constraint firstItem="3W3-le-NF1" firstAttribute="top" secondItem="vFl-ji-FRv" secondAttribute="bottom" constant="16" id="a8K-NS-xPo"/>
                                             <constraint firstAttribute="trailing" secondItem="vFl-ji-FRv" secondAttribute="trailing" constant="8" id="c18-dU-RqH"/>
                                             <constraint firstItem="PMx-qS-Qwj" firstAttribute="leading" secondItem="MPZ-rK-aHC" secondAttribute="leading" constant="20" id="iYY-XJ-r94"/>
                                             <constraint firstItem="P1r-8W-jwZ" firstAttribute="leading" secondItem="MPZ-rK-aHC" secondAttribute="leading" constant="8" id="k53-iS-GWm"/>
@@ -241,17 +212,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="nga-K3-a5Z"/>
                     <connections>
-                        <outlet property="firstType" destination="uZE-ZG-pSI" id="mMs-WV-r0I"/>
+                        <outlet property="containerAbilities" destination="3W3-le-NF1" id="xqR-u6-SaO"/>
+                        <outlet property="containerTypes" destination="vFl-ji-FRv" id="vFU-az-pOB"/>
                         <outlet property="imgDefault" destination="U3F-op-1wh" id="ADv-Hd-rD4"/>
                         <outlet property="imgShiny" destination="Bmc-3l-Vbp" id="8q3-Lv-XWW"/>
                         <outlet property="informations" destination="PMx-qS-Qwj" id="uMP-N0-ro7"/>
                         <outlet property="name" destination="4So-DQ-1fU" id="hHC-9T-IBF"/>
-                        <outlet property="secondType" destination="EaW-v0-QSC" id="e9R-OF-XpF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHy-ye-276" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1125" y="138"/>
+            <point key="canvasLocation" x="1124.6376811594205" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

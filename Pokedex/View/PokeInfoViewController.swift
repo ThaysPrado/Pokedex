@@ -12,15 +12,15 @@ import RxSwift
 import Kingfisher
 
 class PokeInfoViewController: UIViewController, Storyboarded {
+    
     @IBOutlet weak var imgDefault: UIImageView!
     @IBOutlet weak var imgShiny: UIImageView!
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var informations: UILabel!
     
-    @IBOutlet weak var firstType: UIButton!
-    @IBOutlet weak var secondType: UIButton!
-    
+    @IBOutlet weak var containerTypes: UIStackView!
+    @IBOutlet weak var containerAbilities: UIStackView!
     
     weak var coordinator: MainCoordinator?
     var viewModel: PokeInfoVM?
@@ -50,16 +50,44 @@ class PokeInfoViewController: UIViewController, Storyboarded {
         
         self.informations.text = "Height: \(pokemon.height ?? "")  Width: \(pokemon.weight ?? "")"
         
-        self.setType(types: pokemon.types)
+        self.setTypes(types: pokemon.types)
+        self.setAbilities(abilities: pokemon.abilities)
     }
     
-    func setType(types: [String]) {
-        self.setButton(btn: self.firstType, type: types[0])
-        
-        if types.count > 1 {
-            self.setButton(btn: self.secondType, type: types[1])
+    func setAbilities(abilities: [String]) {
+        var axisY = 0
+        for ability in abilities {
+            self.createButtonAbility(axisY: axisY, title: ability)
+            axisY += 45
         }
-
+    }
+    
+    func createButtonAbility(axisY: Int, title: String = "None") {
+        let containerBounds = self.containerAbilities.bounds
+        let button = UIButton(frame: CGRect(x: 0, y: axisY, width: Int(containerBounds.width), height: 40))
+        button.layer.cornerRadius = 5
+        button.backgroundColor = UIColor.init(named: "ability")
+        button.setTitle(title, for: .normal)
+        
+        self.containerAbilities.addSubview(button)
+    }
+    
+    func setTypes(types: [String]) {
+        var axisY = 0
+        for type in types {
+            self.createButtonType(axisY: axisY, type: type)
+            axisY += 45
+        }
+    }
+    
+    func createButtonType(axisY: Int, type: String = "None") {
+        let containerBounds = self.containerTypes.bounds
+        let button = UIButton(frame: CGRect(x: 0, y: axisY, width: Int(containerBounds.width), height: 40))
+        button.layer.cornerRadius = 5
+        button.backgroundColor = UIColor.init(named: type)
+        button.setTitle(type, for: .normal)
+        
+        self.containerTypes.addSubview(button)
     }
     
     func setButton(btn: UIButton, type: String) {

@@ -15,7 +15,7 @@ class Pokemon {
     var height: String?
     var sprites = [String]()
     var types = [String]()
-    //var abilities: [Abilities]?
+    var abilities = [String]()
     
     init (json: [String: Any]) {
         if let name = json["name"] { self.name = "\(name)" }
@@ -34,6 +34,13 @@ class Pokemon {
             for item in typesArr {
                 let type = item["type"] as? [String: Any] ?? [String: Any]()
                 self.types.append(type["name"] as? String ?? "")
+            }
+        }
+        
+        if let abilitiesArr = json["abilities"] as? [[String: Any]] {
+            for item in abilitiesArr {
+                let ability = item["ability"] as? [String: Any] ?? [String: Any]()
+                self.abilities.append(ability["name"] as? String ?? "")
             }
         }
     }
