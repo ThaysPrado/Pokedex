@@ -17,6 +17,8 @@ class PokemonCollectionCell: UICollectionViewCell {
     @IBOutlet weak var container: UIView!
     
     func setup(withViewModel viewModel: PokemonItemPresentable) -> (Void) {
+        self.img.kf.indicatorType = .activity
+        
         self.name.text = viewModel.name?.uppercased() ?? ""
         self.img.kf.setImage(with: URL(string: viewModel.urlImg ?? ""))
         self.container.layer.cornerRadius = 5

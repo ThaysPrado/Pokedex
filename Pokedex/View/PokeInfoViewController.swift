@@ -18,6 +18,7 @@ class PokeInfoViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var informations: UILabel!
+    @IBOutlet weak var abilities: UILabel!
     
     @IBOutlet weak var containerTypes: UIStackView!
     @IBOutlet weak var containerAbilities: UIStackView!
@@ -50,6 +51,7 @@ class PokeInfoViewController: UIViewController, Storyboarded {
         
         self.informations.text = "Height: \(pokemon.height ?? "")  Width: \(pokemon.weight ?? "")"
         
+        self.abilities.isHidden = false
         self.setTypes(types: pokemon.types)
         self.setAbilities(abilities: pokemon.abilities)
     }
@@ -66,7 +68,7 @@ class PokeInfoViewController: UIViewController, Storyboarded {
         let containerBounds = self.containerAbilities.bounds
         let button = UIButton(frame: CGRect(x: 0, y: axisY, width: Int(containerBounds.width), height: 40))
         button.layer.cornerRadius = 5
-        button.backgroundColor = UIColor.init(named: "ability")
+        button.backgroundColor = UIColor.init(named: "first")
         button.setTitle(title, for: .normal)
         
         self.containerAbilities.addSubview(button)

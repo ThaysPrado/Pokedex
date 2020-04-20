@@ -43,7 +43,9 @@ class ViewModel {
             },
             onFailure: { (result) in
                 print("404")
+                self.offset = 0
                 self.items.value.removeAll()
+                self.getPokemonList()
             })
     }
     

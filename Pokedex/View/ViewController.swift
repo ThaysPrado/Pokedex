@@ -27,6 +27,8 @@ class ViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bindViewModel()
+        
+        self.navigationItem.title = "Pokedex"
     }
     
     func bindViewModel() {
@@ -39,7 +41,7 @@ class ViewController: UIViewController, Storyboarded {
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
-        collectionView.rx.modelSelected(PokemonItem.self)
+        collectionView.rx.modelSelected(PokemonItemPresentable.self)
            .map{ $0.name }
            .subscribe(onNext: { [weak self] name in
               guard let name = name else {
@@ -47,12 +49,14 @@ class ViewController: UIViewController, Storyboarded {
               }
               self?.coordinator?.toPokeInfo(name: name)
         }).disposed(by: disposeBag)
+        
     }
     
     @IBAction func searchPokemon(_ sender: UIButton) {
         defer { self.inputSearch.text = "" }
         
         guard let searchName = inputSearch.text, inputSearch.text != "" else {
+            self.getPokemonList()
             return
         }
         
@@ -60,6 +64,13 @@ class ViewController: UIViewController, Storyboarded {
         
         DispatchQueue.global(qos: .background).async {
             self.viewModel?.searchPokemonByName()
+        }
+    }
+    
+    func getPokemonList() {
+        self.viewModel?.offset = 0
+        DispatchQueue.global(qos: .background).async {
+            self.viewModel?.getPokemonList()
         }
     }
     
@@ -96,5 +107,6 @@ extension ViewController: UIScrollViewDelegate, UICollectionViewDelegateFlowLayo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+
 }
 
