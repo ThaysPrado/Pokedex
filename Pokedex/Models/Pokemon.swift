@@ -13,8 +13,8 @@ class Pokemon {
     var name: String?
     var weight: String?
     var height: String?
-    var sprites: [String]?
-    //var types: [String]?
+    var sprites = [String]()
+    var types = [String]()
     //var abilities: [Abilities]?
     
     init (json: [String: Any]) {
@@ -26,10 +26,15 @@ class Pokemon {
             let frontDefault = sprites["front_default"] ?? ""
             let frontShiny = sprites["front_shiny"] ?? ""
             
-            var arrUrl = [String]()
-            arrUrl.append(frontDefault as! String)
-            arrUrl.append(frontShiny as! String)
-            self.sprites = arrUrl
+            self.sprites.append(frontDefault as! String)
+            self.sprites.append(frontShiny as! String)
+        }
+        
+        if let typesArr = json["types"] as? [[String: Any]] {
+            for item in typesArr {
+                let type = item["type"] as? [String: Any] ?? [String: Any]()
+                self.types.append(type["name"] as? String ?? "")
+            }
         }
     }
     

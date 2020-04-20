@@ -16,8 +16,11 @@ class PokeInfoViewController: UIViewController, Storyboarded {
     @IBOutlet weak var imgShiny: UIImageView!
     
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var height: UILabel!
-    @IBOutlet weak var weight: UILabel!
+    @IBOutlet weak var informations: UILabel!
+    
+    @IBOutlet weak var firstType: UIButton!
+    @IBOutlet weak var secondType: UIButton!
+    
     
     weak var coordinator: MainCoordinator?
     var viewModel: PokeInfoVM?
@@ -42,12 +45,29 @@ class PokeInfoViewController: UIViewController, Storyboarded {
         self.imgShiny.kf.indicatorType = .activity
         
         self.name.text = pokemon.name?.uppercased() ?? ""
-        self.imgDefault.kf.setImage(with: URL(string: pokemon.sprites?[0] ?? ""))
-        self.imgShiny.kf.setImage(with: URL(string: pokemon.sprites?[1] ?? ""))
+        self.imgDefault.kf.setImage(with: URL(string: pokemon.sprites[0] ))
+        self.imgShiny.kf.setImage(with: URL(string: pokemon.sprites[1] ))
         
-        self.height.text = "Height: \(pokemon.height ?? "")"
-        self.weight.text = "Width: \(pokemon.weight ?? "")"
+        self.informations.text = "Height: \(pokemon.height ?? "")  Width: \(pokemon.weight ?? "")"
+        
+        self.setType(types: pokemon.types)
+    }
+    
+    func setType(types: [String]) {
+        self.setButton(btn: self.firstType, type: types[0])
+        
+        if types.count > 1 {
+            self.setButton(btn: self.secondType, type: types[1])
+        }
+
+    }
+    
+    func setButton(btn: UIButton, type: String) {
+        btn.layer.cornerRadius = 5
+        btn.backgroundColor = UIColor.init(named: type)
+        btn.titleLabel?.text = type.uppercased()
     }
     
 }
+
 
