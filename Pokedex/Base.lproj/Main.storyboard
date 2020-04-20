@@ -75,8 +75,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzj-za-VYV" userLabel="Name">
-                                                    <rect key="frame" x="37" y="112" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="38.5" y="112" width="39.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -163,8 +163,22 @@
                                                     <constraint firstAttribute="height" constant="50" id="RBL-eB-fMf"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZMe-za-RJy" userLabel="Container Info">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ZMe-za-RJy" userLabel="Container Info">
                                                 <rect key="frame" x="8" y="247" width="398" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMx-qS-Qwj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="199" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5j-2a-tPm">
+                                                        <rect key="frame" x="199" y="0.0" width="199" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="EXA-bx-JFT"/>
                                                 </constraints>
@@ -212,9 +226,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="nga-K3-a5Z"/>
                     <connections>
+                        <outlet property="height" destination="PMx-qS-Qwj" id="ytB-JW-7Pf"/>
                         <outlet property="imgDefault" destination="U3F-op-1wh" id="ADv-Hd-rD4"/>
                         <outlet property="imgShiny" destination="Bmc-3l-Vbp" id="8q3-Lv-XWW"/>
                         <outlet property="name" destination="4So-DQ-1fU" id="hHC-9T-IBF"/>
+                        <outlet property="weight" destination="e5j-2a-tPm" id="2zd-h9-vMP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHy-ye-276" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

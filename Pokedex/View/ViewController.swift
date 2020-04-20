@@ -26,6 +26,10 @@ class ViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bindViewModel()
+    }
+    
+    func bindViewModel() {
         viewModel = ViewModel()
         
         viewModel?.items.asObservable().bind(to: collectionView.rx.items(cellIdentifier: "pokemonCell", cellType: PokemonCollectionCell.self)) {
@@ -34,12 +38,6 @@ class ViewController: UIViewController, Storyboarded {
         }.disposed(by: disposeBag)
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
-        
-//        collectionView.rx.modelSelected(PokemonItem.self)
-//            .subscribe({ [weak self] pokemon in
-//                print(pokemon)
-//                self?.coordinator?.toPokeInfo(name: "aron")
-//            }).disposed(by: disposeBag)
         
         collectionView.rx.modelSelected(PokemonItem.self)
            .map{ $0.name }

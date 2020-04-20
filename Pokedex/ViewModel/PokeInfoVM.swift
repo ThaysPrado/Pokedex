@@ -24,7 +24,7 @@ class PokeInfoVM {
     }
     
     func getPokemonDetails(name: String) {
-        self.api.fetchPokemon(parameters: ["name": name],
+        self.api.fetchPokemon(parameters: ["name": name.lowercased()],
         onSuccess: { (result) in
             let pokemon = result
             self._pokemon.onNext(pokemon)

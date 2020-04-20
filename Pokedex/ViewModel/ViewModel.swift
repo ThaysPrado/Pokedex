@@ -15,7 +15,7 @@ class ViewModel {
     var offset = 0
     var searchName = ""
     
-    var items: Variable< [PokemonItem]> = Variable([])
+    var items: Variable< [PokemonItemPresentable]> = Variable([])
     
     init() {
         api = PokemonService()

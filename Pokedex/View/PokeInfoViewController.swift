@@ -16,6 +16,8 @@ class PokeInfoViewController: UIViewController, Storyboarded {
     @IBOutlet weak var imgShiny: UIImageView!
     
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var height: UILabel!
+    @IBOutlet weak var weight: UILabel!
     
     weak var coordinator: MainCoordinator?
     var viewModel: PokeInfoVM?
@@ -39,9 +41,12 @@ class PokeInfoViewController: UIViewController, Storyboarded {
         self.imgDefault.kf.indicatorType = .activity
         self.imgShiny.kf.indicatorType = .activity
         
-        self.name.text = pokemon.name ?? ""
+        self.name.text = pokemon.name?.uppercased() ?? ""
         self.imgDefault.kf.setImage(with: URL(string: pokemon.sprites?[0] ?? ""))
         self.imgShiny.kf.setImage(with: URL(string: pokemon.sprites?[1] ?? ""))
+        
+        self.height.text = "Height: \(pokemon.height ?? "")"
+        self.weight.text = "Width: \(pokemon.weight ?? "")"
     }
     
 }
