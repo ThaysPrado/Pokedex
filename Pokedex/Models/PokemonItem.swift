@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PokemonItem: PokemonItemPresentable {
+final class PokemonItem: PokemonItemPresentable {
     
     var name: String?
     var index: String?

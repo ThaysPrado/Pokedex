@@ -70,6 +70,7 @@ class ViewController: UIViewController, Storyboarded {
     func getPokemonList() {
         self.viewModel?.offset = 0
         DispatchQueue.global(qos: .background).async {
+            self.viewModel?.clearSearch()
             self.viewModel?.getPokemonList()
         }
     }

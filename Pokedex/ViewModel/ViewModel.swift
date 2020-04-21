@@ -11,42 +11,47 @@ import RxSwift
 
 class ViewModel {
     
-    var api: PokemonService
+    private let repository: PokemonRepository
+    
     var offset = 0
     var searchName = ""
     
     var items: Variable< [PokemonItemPresentable]> = Variable([])
     
-    init() {
-        api = PokemonService()
+    init(repository: PokemonRepository = PokemonRemoteRepository()) {
+        self.repository = repository
         self.getPokemonList()
     }
     
     func getPokemonList() {
-        self.api.listPokemon(parameters: ["offset": "\(offset)"],
-             onSuccess: { (result) in
-                for item in result {
-                    self.items.value.append(item)
-                }
-             },
-             onFailure: { (result) in
-                print(result)
-             })
+        repository.listPokemon(offset: "\(offset)",
+            onSuccess: { (result) in
+               for item in result {
+                   self.items.value.append(item)
+               }
+            },
+            onFailure: { (result) in
+               print(result)
+            })
         self.offset += 20
     }
     
     func searchPokemonByName() {
-        self.api.searchPokemon(parameters: ["name": searchName],
+        repository.searchPokemon(name: searchName.lowercased(),
             onSuccess: { (result) in
                 self.items.value.removeAll()
                 self.items.value.append(result)
             },
             onFailure: { (result) in
-                print("404")
-                self.offset = 0
-                self.items.value.removeAll()
+                print(result)
+                self.clearSearch()
                 self.getPokemonList()
             })
+    }
+    
+    func clearSearch() {
+        self.offset = 0
+        self.items.value.removeAll()
     }
     
 }
