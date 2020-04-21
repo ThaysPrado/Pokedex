@@ -23,6 +23,8 @@ class PokeInfoViewController: UIViewController, Storyboarded {
     @IBOutlet weak var containerTypes: UIStackView!
     @IBOutlet weak var containerAbilities: UIStackView!
     
+    @IBOutlet weak var activityLoad: UIActivityIndicatorView!
+    
     weak var coordinator: MainCoordinator?
     var viewModel: PokeInfoVM?
     var onBack: (() -> Void)?
@@ -42,6 +44,7 @@ class PokeInfoViewController: UIViewController, Storyboarded {
     }
     
     private func setPokemonDetail(pokemon: Pokemon) {
+        self.activityLoad.stopAnimating()
         self.imgDefault.kf.indicatorType = .activity
         self.imgShiny.kf.indicatorType = .activity
         

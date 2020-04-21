@@ -140,6 +140,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPZ-rK-aHC" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="aFE-Xm-BMm">
+                                                <rect key="frame" x="188.5" y="300" width="37" height="37"/>
+                                                <color key="color" name="principal"/>
+                                            </activityIndicatorView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="P1r-8W-jwZ" userLabel="Container Img">
                                                 <rect key="frame" x="8" y="25" width="398" height="140"/>
                                                 <subviews>
@@ -199,9 +203,11 @@
                                             <constraint firstAttribute="trailing" secondItem="jWZ-dM-LW8" secondAttribute="trailing" constant="20" id="fCy-bi-Nii"/>
                                             <constraint firstItem="3W3-le-NF1" firstAttribute="top" secondItem="jWZ-dM-LW8" secondAttribute="bottom" constant="16" id="hTq-fw-wGr"/>
                                             <constraint firstItem="PMx-qS-Qwj" firstAttribute="leading" secondItem="MPZ-rK-aHC" secondAttribute="leading" constant="20" id="iYY-XJ-r94"/>
+                                            <constraint firstItem="aFE-Xm-BMm" firstAttribute="centerX" secondItem="MPZ-rK-aHC" secondAttribute="centerX" id="jMj-zG-t1K"/>
                                             <constraint firstItem="P1r-8W-jwZ" firstAttribute="leading" secondItem="MPZ-rK-aHC" secondAttribute="leading" constant="8" id="k53-iS-GWm"/>
                                             <constraint firstAttribute="trailing" secondItem="P1r-8W-jwZ" secondAttribute="trailing" constant="8" id="lZy-BA-DDd"/>
                                             <constraint firstItem="vFl-ji-FRv" firstAttribute="leading" secondItem="MPZ-rK-aHC" secondAttribute="leading" constant="8" id="r50-I6-xPo"/>
+                                            <constraint firstItem="aFE-Xm-BMm" firstAttribute="top" secondItem="vFl-ji-FRv" secondAttribute="bottom" constant="13" id="uNl-ld-WJY"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -225,6 +231,7 @@
                     <navigationItem key="navigationItem" id="nga-K3-a5Z"/>
                     <connections>
                         <outlet property="abilities" destination="jWZ-dM-LW8" id="hzq-C8-DrG"/>
+                        <outlet property="activityLoad" destination="aFE-Xm-BMm" id="ooD-RE-MW8"/>
                         <outlet property="containerAbilities" destination="3W3-le-NF1" id="xqR-u6-SaO"/>
                         <outlet property="containerTypes" destination="vFl-ji-FRv" id="vFU-az-pOB"/>
                         <outlet property="imgDefault" destination="U3F-op-1wh" id="ADv-Hd-rD4"/>
@@ -239,11 +246,14 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="principal">
+            <color red="0.92199999094009399" green="0.27099999785423279" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="second">
-            <color red="0.68235294117647061" green="0.93725490196078431" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68199998140335083" green="0.93699997663497925" blue="0.92500001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="third">
-            <color red="0.97254901960784312" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97299998998641968" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

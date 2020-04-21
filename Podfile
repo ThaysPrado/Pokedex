@@ -12,5 +12,6 @@ target 'Pokedex' do
   pod 'SwiftyJSON'
   pod 'Kingfisher'
   pod 'Moya'
+  pod 'Nimble', '~> 8.0'
 
 end
