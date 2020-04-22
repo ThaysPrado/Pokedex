@@ -22,21 +22,21 @@ class PokedexTests: QuickSpec {
                     _ = subject.view
                     
                     if let path = Bundle(for: type(of: self)).path(forResource: "PokemonList", ofType: "json") {
-                       do {
-                           let response = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                           let decoded = try JSONSerialization.jsonObject(with: response, options: [])
-                           if let dictFromJSON = decoded as? [String: Any] {
-                               if let pokemonList = dictFromJSON["results"] as? [[String: Any]] {
+                        do {
+                            let response = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                            let decoded = try JSONSerialization.jsonObject(with: response, options: [])
+                            if let dictFromJSON = decoded as? [String: Any] {
+                                if let pokemonList = dictFromJSON["results"] as? [[String: Any]] {
                                     let list = PokemonItem.getModels(pokemonList)
-                                for item in list {
-                                subject.viewModel!.items.value.append(item)
+                                    for item in list {
+                                        subject.viewModel!.items.value.append(item)
+                                    }
                                 }
-                               }
-                           }
-                       } catch {
-                           fail("Problem parsing JSON")
-                       }
-                   }
+                            }
+                        } catch {
+                            fail("Problem parsing JSON")
+                        }
+                    }
                 }
                 
                 it("should have 20 pokemons loaded") {
