@@ -49,7 +49,31 @@ extension PokemonTarget: TargetType {
     }
     
     var sampleData: Data {
-        return Data()
+        switch self {
+        case .listPokemon:
+            guard let path = Bundle.main.path(forResource: MockJson.PokemonList.rawValue, ofType: "json") else {
+                return "".data(using: String.Encoding.utf8)!
+            }
+            let url = URL(fileURLWithPath: path)
+            do {
+                return try Data(contentsOf: url, options: .mappedIfSafe)
+            } catch {
+                return "".data(using: String.Encoding.utf8)!
+            }
+        case .fetchPokemon,
+             .searchPokemon:
+            guard let path = Bundle.main.path(forResource: MockJson.PokemonDetail.rawValue, ofType: "json") else {
+                return "".data(using: String.Encoding.utf8)!
+            }
+            let url = URL(fileURLWithPath: path)
+            do {
+                return try Data(contentsOf: url, options: .mappedIfSafe)
+            } catch {
+                return "".data(using: String.Encoding.utf8)!
+            }
+        default:
+            return Data()
+        }
     }
     
     var task: Task {
