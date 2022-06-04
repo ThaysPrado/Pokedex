@@ -34,10 +34,10 @@ class ViewController: UIViewController, Storyboarded {
     func bindViewModel() {
         viewModel = ViewModel()
         
-        viewModel?.items.asObservable().bind(to: collectionView.rx.items(cellIdentifier: "pokemonCell", cellType: PokemonCollectionCell.self)) {
-            row, item, cell in
-            cell.setup(withViewModel: item)
-        }.disposed(by: disposeBag)
+//        viewModel?.items.asObservable().bind(to: collectionView.rx.items(cellIdentifier: "pokemonCell", cellType: PokemonCollectionCell.self)) {
+//            row, item, cell in
+//            cell.setup(withViewModel: item)
+//        }.disposed(by: disposeBag)
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
