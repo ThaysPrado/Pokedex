@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,14 +30,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scC-xS-asL" userLabel="Btn Search">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scC-xS-asL" userLabel="Btn Search">
                                         <rect key="frame" x="319" y="22.5" width="80" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="0W6-ge-Rii"/>
                                             <constraint firstAttribute="height" constant="45" id="z1v-yf-9Hx"/>
                                         </constraints>
                                         <state key="normal" title="Search">
-                                            <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" systemColor="systemBlueColor"/>
                                         </state>
                                         <connections>
                                             <action selector="searchPokemon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TMm-KX-EKH"/>
@@ -102,6 +103,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="third"/>
                         <constraints>
                             <constraint firstItem="Dtw-n1-OCj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GyQ-lG-Is0"/>
@@ -112,7 +114,6 @@
                             <constraint firstItem="Dtw-n1-OCj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eX6-KY-071"/>
                             <constraint firstItem="ndI-XL-G0h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rx9-VW-aal"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="xa2-dW-EEd"/>
                     <connections>
@@ -222,11 +223,11 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="kB9-nd-mUK"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="G8T-DL-JA4"/>
                         <color key="backgroundColor" name="third"/>
                         <constraints>
                             <constraint firstItem="MPZ-rK-aHC" firstAttribute="width" secondItem="WQy-6x-xVj" secondAttribute="width" id="fvi-CX-PNV"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="G8T-DL-JA4"/>
                     </view>
                     <navigationItem key="navigationItem" id="nga-K3-a5Z"/>
                     <connections>
@@ -255,5 +256,8 @@
         <namedColor name="third">
             <color red="0.97299998998641968" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
