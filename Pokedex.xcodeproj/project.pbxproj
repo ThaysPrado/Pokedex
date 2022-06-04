@@ -32,7 +32,8 @@
 		409322A0284C057600857306 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4093229F284C057600857306 /* Lato-Bold.ttf */; };
 		409322A4284C058100857306 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 409322A3284C058100857306 /* Lato-Light.ttf */; };
 		409322A8284C058E00857306 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 409322A7284C058E00857306 /* Lato-Regular.ttf */; };
-		4093230A284C19C500857306 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40932309284C19C500857306 /* UIColor.swift */; };
+		4093230A284C19C500857306 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40932309284C19C500857306 /* UIColorExtension.swift */; };
+		4093230D284C212B00857306 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093230C284C212B00857306 /* UIImageExtension.swift */; };
 		40AC801B244FC8890047E4F7 /* PokemonList.json in Resources */ = {isa = PBXBuildFile; fileRef = 40AC801A244FC8890047E4F7 /* PokemonList.json */; };
 		40AC801D244FC8AF0047E4F7 /* PokemonDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 40AC801C244FC8AF0047E4F7 /* PokemonDetail.json */; };
 		40AC801F244FC8C50047E4F7 /* MockJsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AC801E244FC8C50047E4F7 /* MockJsonFile.swift */; };
@@ -69,7 +70,8 @@
 		4093229F284C057600857306 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		409322A3284C058100857306 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		409322A7284C058E00857306 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
-		40932309284C19C500857306 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		40932309284C19C500857306 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		4093230C284C212B00857306 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		40AC801A244FC8890047E4F7 /* PokemonList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PokemonList.json; sourceTree = "<group>"; };
 		40AC801C244FC8AF0047E4F7 /* PokemonDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PokemonDetail.json; sourceTree = "<group>"; };
 		40AC801E244FC8C50047E4F7 /* MockJsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJsonFile.swift; sourceTree = "<group>"; };
@@ -206,7 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				40932298284C02A800857306 /* UIFontExtension.swift */,
-				40932309284C19C500857306 /* UIColor.swift */,
+				40932309284C19C500857306 /* UIColorExtension.swift */,
+				4093230C284C212B00857306 /* UIImageExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -351,7 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				405F119D244F4C920044A487 /* NetworkConstants.swift in Sources */,
-				4093230A284C19C500857306 /* UIColor.swift in Sources */,
+				4093230A284C19C500857306 /* UIColorExtension.swift in Sources */,
 				4061721C244DF60900BE4119 /* PokemonItemPresentable.swift in Sources */,
 				4046B8082440FE12007E64D7 /* Pokemon.swift in Sources */,
 				401BB7EB2449338500A78125 /* MainCoordinator.swift in Sources */,
@@ -365,6 +368,7 @@
 				40617220244E6A1300BE4119 /* PokemonRepositoryProtocol.swift in Sources */,
 				40AC801F244FC8C50047E4F7 /* MockJsonFile.swift in Sources */,
 				4046B7FC2440EC86007E64D7 /* PokemonCollectionCell.swift in Sources */,
+				4093230D284C212B00857306 /* UIImageExtension.swift in Sources */,
 				401BB7D72448B78200A78125 /* PokeInfoVM.swift in Sources */,
 				401BB7E724491EB400A78125 /* Coordinators.swift in Sources */,
 				405F119F244F6FBC0044A487 /* PokemonRemoteRepository.swift in Sources */,

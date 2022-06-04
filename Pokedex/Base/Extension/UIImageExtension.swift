@@ -1,5 +1,5 @@
 //
-//  UIColor.swift
+//  UIImageExtension.swift
 //  Pokedex
 //
 //  Created by Thays Prado on 04/06/22.
@@ -8,10 +8,15 @@
 
 import UIKit
 
-extension UIColor {
-    
-    enum Color: String, CaseIterable {
-        // TYPE COLORS
+extension UIImage {
+    enum Images: String, CaseIterable {
+        
+        // BACKGROUND
+        case patternAlternative = "pattern-alternative"
+        case patternDefault = "pattern-default"
+        case pokeball
+        
+        // TYPES
         case bug
         case dark
         case dragon
@@ -31,29 +36,15 @@ extension UIColor {
         case steel
         case water
         
-        // WEIGHT COLORS
+        // WEIGHT
         case weightHeavy = "weight-heavy"
         case weightLight = "weight-light"
         case weightNormal = "weight-normal"
         
-        // HEIGHT COLORS
+        // HEIGHT
         case heightMedium = "height-medium"
         case heightShort = "height-short"
         case heightTall = "height-tall"
         
-        // COMMON COLORS
-        case first
-        case second
-        case black
-        case white
-        case gray
-        case defaultInput = "default-input"
-        case pressedInput = "pressed-input"
-        
-        
-    }
-    
-    convenience init(color: Color) {
-        self.init(named: color.rawValue)!
     }
 }
