@@ -16,7 +16,7 @@ class ViewModel {
     var offset = 0
     var searchName = ""
     
-    var items: Variable< [PokemonItemPresentable]> = Variable([])
+//    var items: Variable< [PokemonItemPresentable]> = Variable([])
     
     init(repository: PokemonRepository = PokemonRemoteRepository()) {
         self.repository = repository
@@ -27,7 +27,7 @@ class ViewModel {
         repository.listPokemon(offset: "\(offset)",
             onSuccess: { (result) in
                for item in result {
-                   self.items.value.append(item)
+//                   self.items.value.append(item)
                }
             },
             onFailure: { (result) in
@@ -39,8 +39,8 @@ class ViewModel {
     func searchPokemonByName() {
         repository.searchPokemon(name: searchName.lowercased(),
             onSuccess: { (result) in
-                self.items.value.removeAll()
-                self.items.value.append(result)
+//                self.items.value.removeAll()
+//                self.items.value.append(result)
             },
             onFailure: { (result) in
                 print(result)
@@ -51,7 +51,7 @@ class ViewModel {
     
     func clearSearch() {
         self.offset = 0
-        self.items.value.removeAll()
+//        self.items.value.removeAll()
     }
     
 }

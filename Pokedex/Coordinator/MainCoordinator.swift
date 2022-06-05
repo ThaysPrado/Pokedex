@@ -17,13 +17,13 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = ViewController.instantiate()
+        let vc = ViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
 
     func toPokeInfo(name: String) {
-        let vc = PokeInfoViewController.instantiate()
+        let vc = PokeInfoViewController()
         vc.coordinator = self
         vc.viewModel = PokeInfoVM(name: name)
         navigationController.pushViewController(vc, animated: true)
