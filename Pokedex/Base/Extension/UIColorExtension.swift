@@ -44,6 +44,8 @@ extension UIColor {
         // COMMON COLORS
         case first
         case second
+        case third
+        
         case black
         case white
         case gray

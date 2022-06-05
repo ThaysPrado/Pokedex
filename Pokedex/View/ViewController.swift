@@ -8,33 +8,16 @@
 
 import UIKit
 import SnapKit
-import RxCocoa
-import RxSwift
 
-class ViewController: UIViewController {
-    
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.lato(with: .bold, forTextStyle: .title1)
-        label.textColor = UIColor(color: .black)
-        label.text = "Pokedex"
-        return label
-    }()
-    
-    private lazy var subtitleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.lato(with: .bold, forTextStyle: .body)
-        label.textColor = UIColor(color: .black)
-        label.numberOfLines = 0
-        label.text = "Search for Pokemon by name or using the National Pokedex number"
-        return label
-    }()
-    
+final class ViewController: UIViewController {
+
     private lazy var searchInput: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = UIFont.lato(with: .regular, forTextStyle: .subheadline)
+        textField.tintColor = UIColor(color: .third)
+        textField.borderStyle = .roundedRect
+        textField.placeholder = "Search Pokemon by name"
         return textField
     }()
     
@@ -45,46 +28,30 @@ class ViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         collectionView.backgroundColor = .clear
+        collectionView.delegate = self
+        collectionView.dataSource = self
         return collectionView
     }()
     
     weak var coordinator: MainCoordinator?
-    
     var heightCell = CGFloat(110)
-    
     var viewModel: ViewModel?
-    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Pokedex"
         
         setupUI()
+        setCollectionView()
     }
     
     func setupUI() {
-        
         view.backgroundColor = UIColor(color: .white)
-        
-        view.addSubview(titleLabel)
-        view.addSubview(subtitleLabel)
         view.addSubview(searchInput)
         view.addSubview(collectionView)
         
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(10)
-            make.left.equalTo(view).offset(10)
-            make.right.equalTo(view).offset(-10)
-        }
-        
-        subtitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.left.equalTo(view).offset(10)
-            make.right.equalTo(view).offset(-10)
-        }
-        
         searchInput.snp.makeConstraints { make in
-            make.top.equalTo(subtitleLabel.snp.bottom).offset(10)
+            make.top.equalTo(view).offset(10)
             make.left.equalTo(view).offset(10)
             make.right.equalTo(view).offset(-10)
             make.height.equalTo(48)
@@ -97,18 +64,19 @@ class ViewController: UIViewController {
         }
     }
     
+    func setCollectionView() {
+        collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: "PokemonCell")
+        collectionView.reloadData()
+    }
+    
     func getPokemonList() {
-//        self.viewModel?.offset = 0
-//        DispatchQueue.global(qos: .background).async {
-//            self.viewModel?.clearSearch()
-//            self.viewModel?.getPokemonList()
-//        }
+        // TODO: get Pokemon
     }
     
 }
 
-// MARK: - Delegates
-extension ViewController: UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
+// MARK: - UIScrollViewDelegate
+extension ViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let bottom: CGFloat = scrollView.contentSize.height - scrollView.frame.size.height
@@ -121,7 +89,10 @@ extension ViewController: UIScrollViewDelegate, UICollectionViewDelegateFlowLayo
            }
         }
     }
-    
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
     }
@@ -140,5 +111,19 @@ extension ViewController: UIScrollViewDelegate, UICollectionViewDelegateFlowLayo
         return 0
     }
 
+}
+
+// MARK: - UICollectionViewDataSource
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 18
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCell", for: indexPath) as? PokemonCell else {
+            return UICollectionViewCell()
+        }
+        return cell
+    }
 }
 

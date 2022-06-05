@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navController = UINavigationController()
         
-        navController.navigationBar.tintColor = UIColor.init(named: "second")
-        navController.navigationBar.barTintColor = UIColor.init(named: "principal")
+        navController.navigationBar.tintColor = UIColor(color: .third)
+        navController.navigationBar.barTintColor = UIColor(color: .second)
+        navController.navigationBar.backgroundColor = UIColor(color: .second)
         navController.navigationBar.isTranslucent = false
 
         // send that into our coordinator so that it can display view controllers

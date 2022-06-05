@@ -23,7 +23,7 @@ class MainCoordinator: Coordinator {
     }
 
     func toPokeInfo(name: String) {
-        let vc = PokeInfoViewController.instantiate()
+        let vc = PokeInfoViewController()
         vc.coordinator = self
         vc.viewModel = PokeInfoVM(name: name)
         navigationController.pushViewController(vc, animated: true)
