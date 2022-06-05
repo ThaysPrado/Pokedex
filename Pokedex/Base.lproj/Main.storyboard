@@ -6,88 +6,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home - GridView-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="ViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" userLabel="Home - GridView" customClass="ViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dtw-n1-OCj" userLabel="SearchBox">
-                                <rect key="frame" x="0.0" y="44" width="414" height="90"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5C-BR-05T" userLabel="Input Search">
-                                        <rect key="frame" x="15" y="22.5" width="289" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="Pvk-ve-EeA"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scC-xS-asL" userLabel="Btn Search">
-                                        <rect key="frame" x="319" y="22.5" width="80" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="0W6-ge-Rii"/>
-                                            <constraint firstAttribute="height" constant="45" id="z1v-yf-9Hx"/>
-                                        </constraints>
-                                        <state key="normal" title="Search">
-                                            <color key="titleColor" systemColor="systemBlueColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="searchPokemon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TMm-KX-EKH"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="scC-xS-asL" firstAttribute="leading" secondItem="U5C-BR-05T" secondAttribute="trailing" constant="15" id="5js-G0-2Ss"/>
-                                    <constraint firstAttribute="trailing" secondItem="scC-xS-asL" secondAttribute="trailing" constant="15" id="6Lr-Gc-nru"/>
-                                    <constraint firstItem="U5C-BR-05T" firstAttribute="leading" secondItem="Dtw-n1-OCj" secondAttribute="leading" constant="15" id="7cK-Qu-rNK"/>
-                                    <constraint firstItem="scC-xS-asL" firstAttribute="centerY" secondItem="Dtw-n1-OCj" secondAttribute="centerY" id="Afv-QB-lxH"/>
-                                    <constraint firstItem="U5C-BR-05T" firstAttribute="centerY" secondItem="Dtw-n1-OCj" secondAttribute="centerY" id="Rs8-gl-10p"/>
-                                    <constraint firstAttribute="height" constant="90" id="bRV-oe-g3j"/>
-                                </constraints>
-                            </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ndI-XL-G0h">
-                                <rect key="frame" x="0.0" y="134" width="414" height="728"/>
-                                <color key="backgroundColor" name="third"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="layoutMargins" id="MMf-T3-cgz">
-                                    <size key="itemSize" width="116" height="146"/>
-                                    <size key="estimatedItemSize" width="145" height="146"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="third"/>
-                        <constraints>
-                            <constraint firstItem="Dtw-n1-OCj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GyQ-lG-Is0"/>
-                            <constraint firstItem="ndI-XL-G0h" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NvA-N2-1TW"/>
-                            <constraint firstItem="Dtw-n1-OCj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Uin-0x-MU2"/>
-                            <constraint firstItem="ndI-XL-G0h" firstAttribute="top" secondItem="Dtw-n1-OCj" secondAttribute="bottom" id="aou-yf-06q"/>
-                            <constraint firstItem="ndI-XL-G0h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eHf-aE-4CG"/>
-                            <constraint firstItem="Dtw-n1-OCj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eX6-KY-071"/>
-                            <constraint firstItem="ndI-XL-G0h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rx9-VW-aal"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="xa2-dW-EEd"/>
-                    <connections>
-                        <outlet property="btnSearch" destination="scC-xS-asL" id="HYm-3B-6eP"/>
-                        <outlet property="collectionView" destination="ndI-XL-G0h" id="dUB-oI-0QC"/>
-                        <outlet property="inputSearch" destination="U5C-BR-05T" id="ba1-Cb-xQf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
-        </scene>
         <!--Poke Info View Controller-->
         <scene sceneID="hLI-uz-Ov5">
             <objects>
@@ -215,8 +136,5 @@
         <namedColor name="third">
             <color red="0.97299998998641968" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

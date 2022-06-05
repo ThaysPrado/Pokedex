@@ -10,4 +10,6 @@ target 'Pokedex' do
   pod 'Kingfisher'
   pod 'Moya'
   
+  pod 'SnapKit', '~> 5.6.0'
+  
 end

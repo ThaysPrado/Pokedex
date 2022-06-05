@@ -7,15 +7,46 @@
 //
 
 import UIKit
+import SnapKit
 import RxCocoa
 import RxSwift
 
-class ViewController: UIViewController, Storyboarded {
+class ViewController: UIViewController {
     
-    @IBOutlet weak var inputSearch: UITextField!
-    @IBOutlet weak var btnSearch: UIButton!
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.lato(with: .bold, forTextStyle: .title1)
+        label.textColor = UIColor(color: .black)
+        label.text = "Pokedex"
+        return label
+    }()
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    private lazy var subtitleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.lato(with: .bold, forTextStyle: .body)
+        label.textColor = UIColor(color: .black)
+        label.numberOfLines = 0
+        label.text = "Search for Pokemon by name or using the National Pokedex number"
+        return label
+    }()
+    
+    private lazy var searchInput: UITextField = {
+        let textField = UITextField(frame: .zero)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let flow = UICollectionViewFlowLayout()
+        flow.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flow)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
     
     weak var coordinator: MainCoordinator?
     
@@ -26,57 +57,57 @@ class ViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bindViewModel()
-        
         self.navigationItem.title = "Pokedex"
+        
+        setupUI()
     }
     
-    func bindViewModel() {
-        viewModel = ViewModel()
+    func setupUI() {
         
-//        viewModel?.items.asObservable().bind(to: collectionView.rx.items(cellIdentifier: "pokemonCell", cellType: PokemonCollectionCell.self)) {
-//            row, item, cell in
-//            cell.setup(withViewModel: item)
-//        }.disposed(by: disposeBag)
+        view.backgroundColor = UIColor(color: .white)
         
-        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        view.addSubview(titleLabel)
+        view.addSubview(subtitleLabel)
+        view.addSubview(searchInput)
+        view.addSubview(collectionView)
         
-        collectionView.rx.modelSelected(PokemonItemPresentable.self)
-           .map{ $0.name }
-           .subscribe(onNext: { [weak self] name in
-              guard let name = name else {
-                return
-              }
-              self?.coordinator?.toPokeInfo(name: name)
-        }).disposed(by: disposeBag)
-        
-    }
-    
-    @IBAction func searchPokemon(_ sender: UIButton) {
-        defer { self.inputSearch.text = "" }
-        
-        guard let searchName = inputSearch.text, inputSearch.text != "" else {
-            self.getPokemonList()
-            return
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(view).offset(10)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
         }
         
-        viewModel?.searchName = searchName
+        subtitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
+        }
         
-        DispatchQueue.global(qos: .background).async {
-            self.viewModel?.searchPokemonByName()
+        searchInput.snp.makeConstraints { make in
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(10)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
+            make.height.equalTo(48)
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(searchInput.snp.bottom).offset(10)
+            make.left.bottom.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
         }
     }
     
     func getPokemonList() {
-        self.viewModel?.offset = 0
-        DispatchQueue.global(qos: .background).async {
-            self.viewModel?.clearSearch()
-            self.viewModel?.getPokemonList()
-        }
+//        self.viewModel?.offset = 0
+//        DispatchQueue.global(qos: .background).async {
+//            self.viewModel?.clearSearch()
+//            self.viewModel?.getPokemonList()
+//        }
     }
     
 }
 
+// MARK: - Delegates
 extension ViewController: UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -86,7 +117,7 @@ extension ViewController: UIScrollViewDelegate, UICollectionViewDelegateFlowLayo
         let lastContentOffset = 0
         if (lastContentOffset < Int(scrollView.contentOffset.y)) {
            if scrollPosition > bottom - buffer {
-                self.viewModel?.getPokemonList()
+//                self.viewModel?.getPokemonList()
            }
         }
     }
